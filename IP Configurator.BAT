@@ -1,12 +1,47 @@
 @ECHO off
 
 ::: Created By Sam Thomas
-::: Version 1.1.0
+::: Version 1.1.1
+::: https://github.com/Exkli/IPConfigurator
 
+::: Version Checker
+if exist C:\Program Files\IPConfigurator\Version Info.txt (
+    del C:\Program Files\IPConfigurator\Version Info.txt
+Echo 1.1.1 >> "C:\Program Files\IPConfigurator\Version Info.txt" 
+Ping www.google.nl -n 1 -w 1000
+cls
+if errorlevel 1 (
+    GOTO ofd
+)    else (
+    goto Version
+)
+:Version
+if exist C:\temp\Version Info.txt (
+    del C:\temp\Version Info.txt
+)
+powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/Version.txt" -Outfile "'C:\temp\Version Info.txt'" 
+
+fc C:\temp\Version Info.txt C:\Program Files\IPConfigurator\Version Info.txt
+if errorlevel 1 ( goto error
+) else goto OP
+:error
+ECHO Offline/Online Versions Do Not Match.
+set /p update=Do you want to update?(Y/N)
+if /i "%y%"=="y" GOTO updates
+if /i "%n%"=="n" GOTO ofd
+:updates
+Timeout /T 1 > NUL
+cls
+call "autoupdate.bat"
+:ofd
+ECHO This Version may be out of date, Please connect your PC to the Internet to Update.
+:OP
 ECHO Version 1.0.0
 ECHO  ศอออออออออออออผ
 ECHO  ศ	     Made By Sam 		   ผ
 ECHO  ศอออออออออออออผ
+ECHO.
+ECHO RUN AS ADMINISTRATOR
 ECHO.
 :begin
 if exist C:\temp (
