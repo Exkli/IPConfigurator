@@ -40,14 +40,15 @@ powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/autoupdater.BAT" -Outfile "'C:\Program Files\IPConfigurator\autoupdater.bat'"
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/README.md" -Outfile "'C:\Program Files\IPConfigurator\readme.txt'"
 powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Installer.BAT'" -Outfile "'C:\Program Files\IPConfigurator\IP Installer.bat'"
-if "%x%"=="0" GOTO Files
-if "%x%"=="1" GOTO end
+:::	if "%x%"=="0" GOTO Files
+:::	if "%x%"=="1" GOTO end
 
-:Files
-SET /P download=Do you want to download the files again? (Y/N)
-IF /i "%download%"=="Y" goto Count
-IF /i "%download%"=="N" goto end
 
+:::	:Files
+:::	SET /P download=Do you want to download the files again? (Y/N)
+:::	IF /i "%download%"=="Y" goto Count
+:::	IF /i "%download%"=="N" goto end
+:::
 :IP
 cls
 goto end
