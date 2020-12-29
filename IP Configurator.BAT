@@ -12,9 +12,9 @@ Echo 1.1.1 >> "C:\Program Files\IPConfigurator\Version Info.txt"
 Ping www.google.nl -n 1 -w 1000
 cls
 if errorlevel 1 (
-    GOTO ofd
+    GOTO Version
 )    else (
-    goto Version
+    GOTO ofd
 )
 :Version
 if exist "C:\temp\Version Info.txt" (
