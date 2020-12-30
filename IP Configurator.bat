@@ -3,7 +3,7 @@ TITLE IP Configurator
 ::: Created By Sam Thomas
 ::: Version 1.1.2
 ::: https://github.com/Exkli/IPConfigurator
-
+set version=1.1.2
 ::: Admin Check
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
@@ -35,7 +35,7 @@ if exist "C:\Program Files\IPConfigurator\Version Info.txt" (
     del "C:\Program Files\IPConfigurator\Version Info.txt"
 )
 ::: VERSION 
-Echo 1.1.2 >> "C:\Program Files\IPConfigurator\Version Info.txt" 
+(ECHO %version%)> "C:\Program Files\IPConfigurator\Version Info.txt" 
 Ping www.google.nl -n 1 -w 1000
 cls
 if errorlevel 1 (
@@ -51,16 +51,22 @@ if exist "C:\temp\Version Info.txt" (
 )
 :D1
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/Version.txt" -Outfile "'C:\temp\Version Info.txt'" 
-
-fc "C:\temp\Version Info.txt" "C:\Program Files\IPConfigurator\Version Info.txt"
-if %errorlevel%=="0" goto OP
-if %errorlevel%=="1" goto error
+::: FILE COMPARE
+FOR /F "usebackq tokens=* delims= " %%z in ("C:\temp\Version Info.txt") do (
+	set ver=%%z
+) 
+if "%ver%"=="%version%" ( 
+    ECHO You are on the latest Version
+    goto OP
+) else ( 
+    goto error
+)
 
 :error
 ECHO Offline/Online Versions Do Not Match.
 set /p update=Do you want to update?(Y/N)
-if /i "%y%"=="y" GOTO updates
-if /i "%n%"=="n" GOTO ofd
+if /i "%update%"=="y" GOTO updates
+if /i "%update%"=="n" GOTO ofd
 :updates
 Timeout /T 1 > NUL
 cls
