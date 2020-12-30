@@ -46,14 +46,16 @@ if errorlevel 1 (
 :Version
 if exist "C:\temp\Version Info.txt" (
     del "C:\temp\Version Info.txt"
-)   else ( goto D1
+)   else ( 
+    goto D1
 )
 :D1
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/Version.txt" -Outfile "'C:\temp\Version Info.txt'" 
 
 fc "C:\temp\Version Info.txt" "C:\Program Files\IPConfigurator\Version Info.txt"
-if errorlevel 1 ( goto op
-) else ( goto error
+if errorlevel 0 ( goto OP
+) else ( 
+    goto error
 )
 :error
 ECHO Offline/Online Versions Do Not Match.
