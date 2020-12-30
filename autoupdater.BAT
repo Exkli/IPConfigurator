@@ -18,8 +18,6 @@ ECHO  ศอออออออออออออผ
 ECHO  ศ	     Made By Sam 		   ผ
 ECHO  ศอออออออออออออผ
 ECHO.
-ECHO RUN AS ADMINISTRATOR
-ECHO.
 ECHO Deleting File - Version Info.txt
 ECHO Deleting File - readme.txt
 ECHO Deleting File - IP Configurator
