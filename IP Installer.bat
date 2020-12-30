@@ -36,7 +36,7 @@ if exist "C:\Program Files\IPConfigurator" (
 )
 :next
 if exist "C:\Program Files\IPConfigurator\readme.txt" (
-	goto Files
+	goto downloads
 )	else (
 	goto downloads
 ) 
@@ -46,12 +46,12 @@ GOTO downloads
 :downloads
 ECHO.
 ECHO Creating Files
-powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Configurator.BAT'" -Outfile "'C:\Program Files\IPConfigurator\IP Configurator.bat'"
-powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/autoupdater.BAT" -Outfile "'C:\Program Files\IPConfigurator\autoupdater.bat'"
+powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Configurator.bat'" -Outfile "'C:\Program Files\IPConfigurator\IP Configurator.bat'"
+powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/autoupdater.bat" -Outfile "'C:\Program Files\IPConfigurator\autoupdater.bat'"
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/README.md" -Outfile "'C:\Program Files\IPConfigurator\readme.txt'"
-powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Installer.BAT'" -Outfile "'C:\Program Files\IPConfigurator\IP Installer.bat'"
+powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Installer.bat'" -Outfile "'C:\Program Files\IPConfigurator\IP Installer.bat'"
 powershell -command invoke-WebRequest "'https://github.com/Exkli/IPConfigurator/raw/main/IP Configurator - Shortcut.lnk'" -Outfile "'C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk'"
-powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/uninstaller.BAT'" -Outfile "'C:\Program Files\IPConfigurator\uninstaller.bat'"
+powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/uninstall.bat'" -Outfile "'C:\Program Files\IPConfigurator\uninstall.bat'"
 GOTO end
 :::	if "%x%"=="0" GOTO Files
 :::	if "%x%"=="1" GOTO end

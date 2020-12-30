@@ -48,9 +48,9 @@ call "autoupdate.bat"
 cls
 ECHO This Version may be out of date, Please connect your PC to the Internet to Update.
 :OP
-if exist "C:\%USERPROFILE%\Desktop\IP Configurator - Shortcut.lnk" (
+if exist "%USERPROFILE%\Desktop\IP Configurator - Shortcut.lnk" (
     goto OP1
-) else copy "C:\%ProgramFiles%\IPConfigurator\IP Configurator - Shortcut.lnk" "%USERPROFILE%\Desktop"
+) else copy "C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk" "%USERPROFILE%\Desktop"
 :OP1
 ECHO Version 1.0.0
 ECHO  ศอออออออออออออผ
