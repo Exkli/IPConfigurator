@@ -40,6 +40,7 @@ powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/autoupdater.BAT" -Outfile "'C:\Program Files\IPConfigurator\autoupdater.bat'"
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/README.md" -Outfile "'C:\Program Files\IPConfigurator\readme.txt'"
 powershell -command invoke-WebRequest "'https://raw.githubusercontent.com/Exkli/IPConfigurator/main/IP Installer.BAT'" -Outfile "'C:\Program Files\IPConfigurator\IP Installer.bat'"
+powershell -command invoke-WebRequest "'https://github.com/Exkli/IPConfigurator/raw/main/IP Configurator - Shortcut.lnk'" -Outfile "'C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk'"
 :::	if "%x%"=="0" GOTO Files
 :::	if "%x%"=="1" GOTO end
 
