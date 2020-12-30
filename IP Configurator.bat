@@ -1,7 +1,7 @@
 @ECHO off
 TITLE IP Configurator
 ::: Created By Sam Thomas
-::: Version 1.1.1
+::: Version 1.1.2
 ::: https://github.com/Exkli/IPConfigurator
 
 ::: Admin Check
@@ -15,7 +15,8 @@ if errorlevel 1 (
 if exist "C:\Program Files\IPConfigurator\Version Info.txt" (
     del "C:\Program Files\IPConfigurator\Version Info.txt"
 )
-Echo 1.1.1 >> "C:\Program Files\IPConfigurator\Version Info.txt" 
+::: VERSION 
+Echo 1.1.2 >> "C:\Program Files\IPConfigurator\Version Info.txt" 
 Ping www.google.nl -n 1 -w 1000
 cls
 if errorlevel 1 (
@@ -174,7 +175,6 @@ IF "%NO%"=="time" GOTO time
 IF "%NO%"=="999" GOTO colour
 
 :I1
-CLS
 ECHO Interface; %int1%
 ECHO.
 ECHO Choose Option: 
@@ -215,7 +215,6 @@ ECHO IP Set
 GOTO :I1
 
 :I2
-CLS
 ECHO Interface; %int2%
 ECHO.
 ECHO Choose Option: 
@@ -255,7 +254,6 @@ ECHO IP Set
 GOTO :I2
 
 :I3
-CLS
 ECHO Interface; %int3%
 ECHO.
 ECHO Choose Option: 
