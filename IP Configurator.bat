@@ -1,9 +1,9 @@
 @ECHO off
 TITLE IP Configurator
 ::: Created By Sam Thomas
-::: Version 1.1.2
+::: Version 1.1.3
 ::: https://github.com/Exkli/IPConfigurator
-set version=1.1.2
+set version=1.1.3
 ::: Admin Check
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
@@ -79,9 +79,9 @@ ECHO This Version may be out of date, Please connect your PC to the Internet to 
 :OP
 if exist "%USERPROFILE%\Desktop\IP Configurator - Shortcut.lnk" (
     goto OP1
-) else copy "C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk" "%USERPROFILE%\Desktop"
+) else copy "C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk" "%USERPROFILE%\Desktop" >NUL
 :OP1
-ECHO Version 1.1.2
+ECHO Version %version%
 ECHO  ศอออออออออออออผ
 ECHO  ศ	     Made By Sam 		   ผ
 ECHO  ศอออออออออออออผ
