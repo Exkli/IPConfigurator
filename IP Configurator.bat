@@ -53,10 +53,9 @@ if exist "C:\temp\Version Info.txt" (
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/Version.txt" -Outfile "'C:\temp\Version Info.txt'" 
 
 fc "C:\temp\Version Info.txt" "C:\Program Files\IPConfigurator\Version Info.txt"
-if errorlevel 0 ( goto OP
-) else ( 
-    goto error
-)
+if %errorlevel%=="0" goto OP
+if %errorlevel%=="1" goto error
+
 :error
 ECHO Offline/Online Versions Do Not Match.
 set /p update=Do you want to update?(Y/N)
