@@ -5,6 +5,25 @@ TITLE IP Configurator
 ::: https://github.com/Exkli/IPConfigurator
 
 ::: Admin Check
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+if '%errorlevel%' NEQ '0' (
+    echo Requesting Admin access...
+    goto goUAC 
+)   else ( goto goADMIN
+)
+
+:goUAC
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    set params = %*:"=""
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+:goADMIN
+    pushd "%CD%"
+    CD /D "%~dp0"
 net session
 if errorlevel 1 (
     goto Admin
@@ -27,12 +46,14 @@ if errorlevel 1 (
 :Version
 if exist "C:\temp\Version Info.txt" (
     del "C:\temp\Version Info.txt"
+)   else ( goto D1
 )
+:D1
 powershell -command invoke-WebRequest "https://raw.githubusercontent.com/Exkli/IPConfigurator/main/Version.txt" -Outfile "'C:\temp\Version Info.txt'" 
 
 fc "C:\temp\Version Info.txt" "C:\Program Files\IPConfigurator\Version Info.txt"
-if errorlevel 1 ( goto op
-) else ( goto error
+if errorlevel 1 ( goto error
+) else ( goto op
 )
 :error
 ECHO Offline/Online Versions Do Not Match.
@@ -42,7 +63,7 @@ if /i "%n%"=="n" GOTO ofd
 :updates
 Timeout /T 1 > NUL
 cls
-call "autoupdate.bat"
+call "C:\Program Files\IPConfigurator\autoupdater.bat"
 
 ::: IP Configurator
 :ofd
@@ -53,7 +74,7 @@ if exist "%USERPROFILE%\Desktop\IP Configurator - Shortcut.lnk" (
     goto OP1
 ) else copy "C:\Program Files\IPConfigurator\IP Configurator - Shortcut.lnk" "%USERPROFILE%\Desktop"
 :OP1
-ECHO Version 1.0.0
+ECHO Version 1.1.2
 ECHO  ศอออออออออออออผ
 ECHO  ศ	     Made By Sam 		   ผ
 ECHO  ศอออออออออออออผ

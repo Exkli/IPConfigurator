@@ -5,6 +5,23 @@ TITLE Uninstaller
 ::: https://github.com/Exkli/IPConfigurator
 
 ::: Admin Check
+if '%errorlevel%' NEQ '0' (
+    echo Requesting Admin access...
+    goto goUAC 
+)   else ( goto goADMIN
+)
+
+:goUAC
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    set params = %*:"=""
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+:goADMIN
+    pushd "%CD%"
+    CD /D "%~dp0"
 net session
 if errorlevel 1 (
     goto Admin
