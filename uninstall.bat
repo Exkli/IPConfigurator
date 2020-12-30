@@ -43,7 +43,7 @@ goto Delete
 cls
 ECHO.
 ECHO PLEASE RUN AS ADMINISTRATOR
-Exit
+pause
 
 :Delete
 del "C:\Program Files\IPConfigurator\uninstall.bat"
