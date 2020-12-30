@@ -4,6 +4,16 @@
 ::: Updater
 ::: Version 1.0.0
 ::: https://github.com/Exkli/IPConfigurator
+
+::: Admin Check
+net session
+if errorlevel 1 (
+    goto Admin
+) else ( goto op
+)
+
+::: Updater
+:op
 ECHO  ศอออออออออออออผ
 ECHO  ศ	     Made By Sam 		   ผ
 ECHO  ศอออออออออออออผ
@@ -26,3 +36,10 @@ Timeout /t 2 >NUL
 cls
 ECHO Running IP Configurator
 call "C:\Program Files\IPConfiguratorIP Configurator.bat"
+
+:Admin
+cls
+ECHO.
+ECHO PLEASE RUN AS ADMINISTRATOR
+PAUSE
+Exit
