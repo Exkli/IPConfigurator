@@ -29,6 +29,7 @@ del "C:\Program Files\IPConfigurator\autoupdater.bat"
 del "C:\Program Files\IPConfigurator\IP Configurator.bat"
 del "C:\Program Files\IPConfigurator\readme.txt"
 del "C:\Program Files\IPConfigurator\Version Info.txt"
+del "C:\Program Files\IPConfigurator\IPConfigurator\IP Configurator - Shortcut.lnk"
 goto Delete
 
 :Uninstall All
@@ -36,6 +37,7 @@ del "C:\Program Files\IPConfigurator\autoupdater.bat"
 del "C:\Program Files\IPConfigurator\IP Configurator.bat"
 del "C:\Program Files\IPConfigurator\readme.txt"
 del "C:\Program Files\IPConfigurator\Version Info.txt"
+del "C:\Program Files\IPConfigurator\IPConfigurator\IP Configurator - Shortcut.lnk"
 del "C:\Program Files\IPConfigurator\IP Installer.bat"
 goto Delete
 
